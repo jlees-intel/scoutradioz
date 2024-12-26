@@ -301,7 +301,7 @@
 		snackbar.error(errorMessage);
 	}
 
-	async function wrap(func: () => void | Promise<void>) {
+	async function wrap(func: () => unknown | Promise<unknown>) {
 		try {
 			console.log('autoplay begin');
 			await refreshButtonAnimation.autoplay(func);
@@ -333,7 +333,7 @@
 			</Content>
 			<CActions>
 				<Group variant="outlined">
-					<Button variant="outlined" on:click={() => wrap(downloadOrgInfo)}>
+					<Button variant="outlined" onclick={() => wrap(downloadOrgInfo)}>
 						<Icon class="material-icons">person</Icon>
 						<BLabel>Download users / org info / event info</BLabel>
 					</Button>
@@ -352,15 +352,15 @@
 			</Content>
 			<CActions>
 				<Group variant="outlined">
-					<Button variant="outlined" on:click={() => wrap(MatchScoutingOperations.download)}>
+					<Button variant="outlined" onclick={() => wrap(MatchScoutingOperations.download)}>
 						<Icon class="material-icons">download</Icon>
 						<BLabel>Download assignments</BLabel>
 					</Button>
-					<Button variant="outlined" on:click={() => wrap(MatchOperations.download)}>
+					<Button variant="outlined" onclick={() => wrap(MatchOperations.download)}>
 						<Icon class="material-icons">download</Icon>
 						<BLabel>Download matches</BLabel>
 					</Button>
-					<Button variant="outlined" on:click={() => wrap(uploadMatchScouting)}>
+					<Button variant="outlined" onclick={() => wrap(uploadMatchScouting)}>
 						<Icon class="material-icons">upload</Icon>
 						<BLabel>Upload data</BLabel>
 					</Button>
@@ -376,11 +376,11 @@
 			</Content>
 			<CActions>
 				<Group variant="outlined">
-					<Button variant="outlined" on:click={() => wrap(PitScoutingOperations.download)}>
+					<Button variant="outlined" onclick={() => wrap(PitScoutingOperations.download)}>
 						<Icon class="material-icons">download</Icon>
 						<BLabel>Download assignments</BLabel>
 					</Button>
-					<Button variant="outlined" on:click={() => wrap(uploadPitScouting)}>
+					<Button variant="outlined" onclick={() => wrap(uploadPitScouting)}>
 						<Icon class="material-icons">upload</Icon>
 						<BLabel>Upload data</BLabel>
 					</Button>
